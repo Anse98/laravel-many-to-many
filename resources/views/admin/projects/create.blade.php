@@ -14,6 +14,21 @@
                 </div>
 
                 <div class="mb-3">
+                    <p class="color-grey">Seleziona i tag (Facoltativo)</p>
+
+                    <div class="d-flex flex-wrap gap-4">
+                        @foreach ($technologies as $technology)
+                            <div class="form-check">
+                                <input name="technologies[]" class="form-check-input" type="checkbox" value="{{$technology->id}}"
+                                @checked(in_array($technology->id, old('technologies', [])))>
+                                <label class="form-check-label color-grey" for="tag-{{$technology->id}}">
+                                {{$technology->name}}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="mb-3">
                     <label for="thumb" class="form-label color-grey">Url immagine</label>
                     <input type="text" required class="form-control text-bg-dark" name="thumb" id="thumb" placeholder="Url Immagine" value="{{old('thumb')}}">
                 </div>
@@ -24,7 +39,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="type" class="form-label color-grey">Tipo di Progetto</label>
+                    <label for="type" class="form-label color-grey">Tipo di Progetto (Facoltativo)</label>
                     <select name="type_id" id="type_id" class="form-control text-bg-dark">
                         <option value="">Scegli il tipo di progetto</option>
                         @foreach ($types as $type)

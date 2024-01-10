@@ -44,6 +44,7 @@ class ProjectController extends Controller
             'title' => 'required|max:255|string|unique:projects',
             'thumb' => 'required|url',
             'description' => 'nullable|min:10|string',
+            'type_id' => 'nullable|exists:types,id'
         ]);
 
 

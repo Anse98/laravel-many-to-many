@@ -9,6 +9,12 @@
             <h3 class="badge border mb-5">{{ $project->type->name }}</h3>
             @endif
 
+            <ul class="d-flex gap-2 ps-0">
+              @foreach ($project->technologies as $technology)
+                  <li class="badge rounded-pill text-bg-dark">{{$technology->name}}</li>
+              @endforeach
+            </ul>
+
             <p class="text-light pb-5">{{$project->description}}</p>
 
             <div class="d-flex align-items-center gap-3 pb-3 justify-content-between">
